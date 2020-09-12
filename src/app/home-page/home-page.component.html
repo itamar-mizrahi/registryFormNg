@@ -1,0 +1,21 @@
+
+    <div class="header">
+       <img class="right-top" width="50" height="50" src="/assets/options.png" alt="optionLogo" (click)="validFunc()">
+       <button class="btn btn-primary right-center" *ngIf="valid==true" [routerLink]="['/']" >מסך טעינה</button>
+       <button class="btn btn-primary right-bottom" *ngIf="valid==true"[routerLink]="['/track-register']">מעקב רישום</button>
+        <p class="center">{{d.toLocaleString()}}</p>
+        <img class="left" width="100" height="100" src="/assets/AmanLogo.svg.png" alt="AmanLogo">
+    </div>
+    <div class="main">
+        <p class="top-center"> שם</p>
+        <p class="bottom-center">שעות העברת חוגר</p>
+        <p class="left-bottom">הערה</p>
+
+    </div>
+    <div class="footer">
+        <p class="center-top">!נא העבר חוגר בכניסתך וביציאתך</p>
+        <p class="center-bottom" type="text">שם מנהל הכנס+מס טלפון</p>
+    </div>
+
+
+

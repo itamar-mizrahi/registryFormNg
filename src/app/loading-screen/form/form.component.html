@@ -1,0 +1,113 @@
+<form (ngSubmit)="sendForm(f)" #f="ngForm">
+  <hr />
+  <div class="main">
+    <label class="right">
+        <select
+          class="right browser-default custom-select"
+          ngModel
+          name="courseOrEvent"
+        >
+          <option value="קורס">קורס</option>
+          <option value="כנס">כנס</option>
+        </select>
+      <input
+        class="right"
+        type="text"
+        placeholder=" שם הכנס או הקורס"
+        ngModel
+        name="nameOfCourse"
+        required
+        #nameOfCourse="ngModel"
+      />
+      שם
+      <span
+        class="help-block"
+        *ngIf="!nameOfCourse.valid && nameOfCourse.touched"
+        >לא הוזן שם
+      </span>
+    </label>
+    <label class="center">
+      <input
+        class="center"
+        type="number"
+        ngModel
+        name="signature"
+        required
+        #signature="ngModel"
+      />כמות החתמות
+      <span
+        class="help-block"
+        *ngIf="
+          (!signature.valid && signature.touched) ||
+          f.value.signature > 5 ||
+          f.value.signature <= 0
+        "
+        >לא הוזנה כמות חוקית</span
+      >
+    </label>
+    <div class="left">
+      <span class=" buttonRounded minus" (click)="removeForm()">הסר</span>
+    </div>
+    <label
+      class="center-bottom"
+      *ngIf="f.value.signature <= 5 && f.value.signature > 0"
+    >
+      <input
+        *ngFor="
+          let i of ' '.repeat(f.value.signature).split('');
+          index as index
+        "
+        class="center-bottom"
+        type="time"
+        ngModel
+        name="timeOfSign{{ index }}"
+      />
+      שעות העברת חוגר
+    </label>
+    <label *ngIf="f.value.courseOrEvent == 'קורס'" class="left">
+      <select class="left" placeholder="זמן הקורס" ngModel name="timeOfCourse">
+        <option value="קורס">שבוע</option>
+        <option value="כנס">שבועיים</option>
+        <option value="כנס">חודש</option>
+      </select>
+      זמן הקורס
+    </label>
+    <label class="left-bottom">
+      <input
+        class="left-bottom"
+        type="text"
+        placeholder=" הערה זו תופיע בדף הבית  "
+        ngModel
+        name="notes"
+      />הערות
+    </label>
+    <label class="bottom-right">העלה אקסל משתתפים </label>
+  </div>
+  <div class="footer">
+    <p class="center-bottom">
+      <input
+        class="center-bottom"
+        type="text"
+        placeholder="שם"
+        ngModel
+        name="nameOfManager"
+        required
+      />
+      <input
+        class="center-bottom"
+        type="text"
+        placeholder="מספר טלפון"
+        ngModel
+        name="phoneOfManager"
+        required
+      />
+      שם מנהל הכנס+מס טלפון
+    </p>
+    <input
+      class="btn btn-success left"
+      type="submit"
+      [disabled]="!f.valid || f.value.signature > 5 || f.value.signature <= 0"
+    />
+    <span class="btn btn-danger right" (click)="f.reset()">איפוס</span>
+  </div>
+</form>

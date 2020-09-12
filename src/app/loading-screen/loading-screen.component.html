@@ -1,0 +1,24 @@
+<div class="header">
+  <button class="btn btn-primary right-top" [routerLink]="['/preview']">
+    תצוגה מקדימה
+  </button>
+  <button class="btn btn-info right-bottom" [routerLink]="['/track-register']">
+    מעקב רישום
+  </button>
+  <p class="left-right">{{ d.toLocaleString() }}</p>
+  <img
+    class="left-left "
+    width="100"
+    height="100"
+    src="/assets/AmanLogo.svg.png"
+    alt="AmanLogo"
+  />
+</div>
+<div class="plusButton">
+  <button class="buttonRounded" (click)="newForm()">חדש</button>
+</div>
+<app-form
+*ngFor = "let i of formsData; index as index"
+  [formIndex]="index"
+  (formSubmitEvent)="reciveForm($event)"
+></app-form>

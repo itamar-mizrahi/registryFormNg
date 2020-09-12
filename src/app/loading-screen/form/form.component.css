@@ -1,0 +1,74 @@
+.main {
+  display: grid;
+  grid-row: 2;
+}
+
+.main .right {
+  grid-column: 3;
+  grid-row: 1;
+}
+.main .center {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+}
+.main .left {
+  grid-column: 1;
+  grid-row: 1;
+}
+.main .left-bottom {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+}
+.main .left-bottom {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+}
+.main .center-bottom {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+}
+.main .bottom-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.footer {
+  display: grid;
+  grid-row: 3;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+.footer .center-bottom {
+  text-align: center;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+}
+.footer .left {
+  grid-column: 1;
+  grid-row: 3;
+}
+.footer .right {
+  grid-column: 3;
+  grid-row: 3;
+}
+.buttonRounded {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+}
