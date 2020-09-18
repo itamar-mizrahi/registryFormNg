@@ -7,7 +7,7 @@ import { previewModel } from "../models/preview.model";
 @Component({
   selector: "app-loading-screen",
   templateUrl: "./loading-screen.component.html",
-  styleUrls: ["./loading-screen.component.css"]
+  styleUrls: ["./loading-screen.component.css"],
 })
 export class LoadingScreenComponent implements OnInit, DoCheck {
   d = new Date();
@@ -18,7 +18,7 @@ export class LoadingScreenComponent implements OnInit, DoCheck {
   constructor(private http: HttpClient, private previewData: PreviewService) {}
 
   ngOnInit() {
-    this.previewData.currentData.subscribe(data => (this.preview = data));
+    this.previewData.currentData.subscribe((data) => (this.preview = data));
     setInterval(() => {
       this.d = new Date();
     }, 1000);
@@ -34,7 +34,7 @@ export class LoadingScreenComponent implements OnInit, DoCheck {
     console.log(form);
     this.http
       .post("http://localhost:1234", form.value)
-      .subscribe(responseData => {
+      .subscribe((responseData) => {
         console.log(responseData);
       });
     form.reset();
