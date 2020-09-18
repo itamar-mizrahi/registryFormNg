@@ -32,12 +32,12 @@ export class LoadingScreenComponent implements OnInit, DoCheck {
   }
   onSubmit(form: NgForm) {
     console.log(form);
-    this.http
-      .post("http://localhost:1234", form.value)
+    this.http.
+    post("http://localhost:1234", form)
       .subscribe((responseData) => {
         console.log(responseData);
       });
-    form.reset();
+
   }
   newForm() {
     this.formsData.push(new previewModel());
@@ -46,9 +46,10 @@ export class LoadingScreenComponent implements OnInit, DoCheck {
     console.log(formIndex);
   }
 
-  reciveForm($event) {
-    console.log("got form : " + $event);
+  reciveForm($event: NgForm) {
+    console.log("got form : ", $event);
     let f: NgForm = $event;
-    console.log(f.value.nameOfCourse);
+    console.log(f.value);
+    this.onSubmit(f.value)
   }
 }
